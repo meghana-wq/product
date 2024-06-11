@@ -4,15 +4,16 @@ import axios from 'axios'
 
 
 const ViewAll = () => {
-    const[data,changeData]=useState([])
-    const fetchData =()=>{
-        axios.get("https://jsonplaceholder.typicode.com/posts").then(
-            (response)=>{
-                changeData(response.data)
-            }
-        ).catch().finally()
-    }
-  useEffect(()=>{fetchData()},[])
+    const[data,changeData]=useState([
+        {"procuctname":"facewash","productbrand":"cetaphil","rating":"five"},
+        {"procuctname":"sunscreen","productbrand":"dermaco","rating":"two"},
+        {"procuctname":"handcream","productbrand":"ponds","rating":"one"},
+        {"procuctname":"moisturizer","productbrand":"minimalist","rating":"four"}
+            
+       
+        
+    ])
+    
   return (
     <div>
         <Navbar/>
@@ -25,9 +26,10 @@ const ViewAll = () => {
                                 return <div className="col col-12 col-sm-6 col-md-4 col-lg-3 col-xl-3 col-xxl-3">    
                         <div class="card">
                             <ul class="list-group list-group-flush">
-                                <li class="list-group-item">{value.userId}</li>
-                                <li class="list-group-item">{value.title}</li>
-                                <li class="list-group-item">{value.body}</li>
+                                <li class="list-group-item">{value.procuctname}</li>
+                                <li class="list-group-item">{value.productbrand}</li>
+                                <li class="list-group-item">{value.rating}</li>
+                                
                             </ul>
                             </div>
                         </div>
